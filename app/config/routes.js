@@ -1,36 +1,44 @@
-import { StatusBar, Animated, Easing } from 'react-native';
+import React from 'react';
+import { StatusBar, Text } from 'react-native';
 import { StackNavigator, TabNavigator, DrawerNavigator } from 'react-navigation';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import Entry from '../screens/Entry';
 import Login from '../screens/Login';
 import SignUp from '../screens/SignUp';
 import AddContacts from '../screens/AddContacts';
-
 import MainVideo from '../screens/MainVideo';
 import ChallengeListScreen from '../screens/ChallengeListScreen';
 import ViewFriendChallenges from '../screens/ViewFriendChallenges';
+import Settings from '../screens/Settings';
 
-const drawerNavigator = DrawerNavigator(
-    {
-        AddContacts: {
-            screen: AddContacts,
-        }
-    }
-);
+const DrawerIcon = ({ navigate }) => {
+    return (
+        <Icon
+            name="md-menu"
+            size={28}
+            style={{ paddingLeft: 20 }}
+            onPress={() => navigate('DrawerOpen')}
+        />
+    );
+};
+
+const Drawer = DrawerNavigator({
+    AddContacts: { screen: AddContacts, },
+    Settings: { screen: Settings , },
+});
 
 const MainNavigator = TabNavigator(
     {
         ViewFriendChallenges: {
             screen: ViewFriendChallenges,
             navigationOptions: {
-                header: () => null,
                 tabBarLabel: 'View Challenges',
             },
         },
         MainVideo: {
             screen: MainVideo,
             navigationOptions: {
-                header: () => null,
                 tabBarLabel: 'Record Video',
                 // tabBarIcon: ({ tintColor }) => (
                 //   <Image
@@ -43,10 +51,10 @@ const MainNavigator = TabNavigator(
         ChallengeListScreen: {
             screen: ChallengeListScreen,
             navigationOptions: {
-                header: () => null,
                 tabBarLabel: 'Watch Challenges',
             },
         },
+
     },
     {
         mode: 'default',
@@ -73,40 +81,33 @@ const MainNavigator = TabNavigator(
 );
 
 
+
 export default AppNavigator = StackNavigator(
     {
-        Entry: {
-            screen: Entry,
-            navigationOptions: {
-                header: () => null,
-            },
-        },
-        Login: {
-            screen: Login,
-            navigationOptions: {
-                header: () => null,
-            },
-        },
-        SignUp: {
-            screen: SignUp,
-            navigationOptions: {
-                header: () => null,
-            },
-        },
+        Entry: { screen: Entry,  navigationOptions: { header: () => null, }, },
+        Login: { screen: Login,  navigationOptions: { header: () => null, }, },
+        SignUp: { screen: SignUp, navigationOptions: { header: () => null, }, },
         MainVideo: {
             screen: MainNavigator,
+            navigationOptions: ({navigation}) => ({
+                headerLeft: <Text onPress={() => navigation.navigate('DrawerOpen') }>Menu</Text>,
+            }),
         },
         AddContacts: {
             screen: AddContacts,
             header: () => null,
+        },
+        Drawer: {
+            screen: Drawer,
         }
-
     },
     {
         mode: 'modal',
-        cardStyle: { paddingTop: StatusBar.currentHeight },
     },
 
 );
+
+
+
 
 

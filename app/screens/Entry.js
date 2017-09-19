@@ -21,7 +21,7 @@ class Entry extends Component {
     };
     render() {
         return (
-            this.props.isFetching ? <ActivityIndicator /> :
+            this.props.isFetching ? <ActivityIndicator style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}/> :
                 <View style={styles.container}>
                     <View style={styles.loginContainer}>
                         <Text style={styles.entryText}>Vvideo</Text>
@@ -40,9 +40,6 @@ class Entry extends Component {
 const styles = EStyleSheet.create({
     container: {
         flex: 1,
-        '@media android': {
-            marginTop: -StatusBar.currentHeight,
-        }
     },
     loginContainer: {
         flex: .7,

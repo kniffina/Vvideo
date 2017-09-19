@@ -16,14 +16,9 @@ class AddContacts extends Component {
 
     render() {
         return (
-            <ListView
-                dataSource={this.state.dataSource}
-                renderRow={(rowData) =>
-                    <ContactListItem
-
-                    />
-                }
-            />
+            <View>
+                <Text style={{fontSize: 60}}>Add Contacts Screen</Text>
+            </View>
         );
     }
 }
@@ -42,7 +37,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getContacts: () => dispatch(getContacts()),
-
     }
 };
 

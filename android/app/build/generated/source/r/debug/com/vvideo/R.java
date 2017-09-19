@@ -1806,7 +1806,13 @@ containing a value of this type.
         public static final int abc_textfield_search_activated_mtrl_alpha=0x7f02003b;
         public static final int abc_textfield_search_default_mtrl_alpha=0x7f02003c;
         public static final int abc_textfield_search_material=0x7f02003d;
-        public static final int notification_template_icon_bg=0x7f02003e;
+        public static final int node_modules_reactnativedropdownalert_assets_cancel=0x7f02003e;
+        public static final int node_modules_reactnativedropdownalert_assets_error=0x7f02003f;
+        public static final int node_modules_reactnativedropdownalert_assets_info=0x7f020040;
+        public static final int node_modules_reactnativedropdownalert_assets_success=0x7f020041;
+        public static final int node_modules_reactnativedropdownalert_assets_warn=0x7f020042;
+        public static final int node_modules_reactnavigation_src_views_assets_backicon=0x7f020043;
+        public static final int notification_template_icon_bg=0x7f020044;
     }
     public static final class id {
         public static final int action0=0x7f0d0058;

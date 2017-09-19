@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Text } from 'react-native';
+import { View, Text, StatusBar } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 class ViewFriendChallenges extends Component {
     render() {
         return (
-            <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+            <View style={styles.container}>
                 <Text style={{fontSize: 50}}>View Friends Challenges</Text>
             </View>
         );
@@ -14,7 +14,14 @@ class ViewFriendChallenges extends Component {
 }
 
 const styles = EStyleSheet.create({
-
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        '@media android': {
+            marginTop: -StatusBar.currentHeight,
+        }
+    }
 });
 
 const mapStateToProps = (state) => {
