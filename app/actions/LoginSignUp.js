@@ -78,7 +78,7 @@ export const userSignUp = (email, password, navigation) => {
         dispatch(setFetchingTrue());
         firebaseRef.auth().createUserWithEmailAndPassword(email, password)
             .then(function(response) {
-                Firebase.database().ref('users' + response.uid).set({
+                Firebase.database().ref('users/' + response.uid).set({
                     email: email,
                     password: password,
                     userId: response.uid,
@@ -157,4 +157,3 @@ export const setFetchingFalse = () => {
         type: IS_FETCHING_FALSE,
     }
 };
-
