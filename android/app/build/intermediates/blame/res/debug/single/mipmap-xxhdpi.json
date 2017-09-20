@@ -1,9 +1,5 @@
 [
     {
-        "merged": "C:\\development\\Vvideo\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_launcher.png",
-        "source": "C:\\development\\Vvideo\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
-    },
-    {
         "merged": "C:\\dev\\Vvideo\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_launcher.png",
         "source": "C:\\dev\\Vvideo\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     }

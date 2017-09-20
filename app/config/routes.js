@@ -12,21 +12,7 @@ import ChallengeListScreen from '../screens/ChallengeListScreen';
 import ViewFriendChallenges from '../screens/ViewFriendChallenges';
 import Settings from '../screens/Settings';
 
-const DrawerIcon = ({ navigate }) => {
-    return (
-        <Icon
-            name="md-menu"
-            size={28}
-            style={{ paddingLeft: 20 }}
-            onPress={() => navigate('DrawerOpen')}
-        />
-    );
-};
 
-const Drawer = DrawerNavigator({
-    AddContacts: { screen: AddContacts, },
-    Settings: { screen: Settings , },
-});
 
 const MainNavigator = TabNavigator(
     {
@@ -70,7 +56,6 @@ const MainNavigator = TabNavigator(
             labelStyle: {
                 fontSize: 14,
                 padding: 5,
-
             },
             style: {
                 height: 70,
@@ -80,6 +65,9 @@ const MainNavigator = TabNavigator(
     }
 );
 
+const Drawer = DrawerNavigator({
+    Tabs: { screen: MainNavigator }
+});
 
 
 export default AppNavigator = StackNavigator(
@@ -88,10 +76,10 @@ export default AppNavigator = StackNavigator(
         Login: { screen: Login,  navigationOptions: { header: () => null, }, },
         SignUp: { screen: SignUp, navigationOptions: { header: () => null, }, },
         MainVideo: {
-            screen: MainNavigator,
-            navigationOptions: ({navigation}) => ({
-                headerLeft: <Text onPress={() => navigation.navigate('DrawerOpen') }>Menu</Text>,
-            }),
+            screen: Drawer,
+            // navigationOptions: ({navigation}) => ({
+            //     headerLeft: <Text onPress={() => navigation.navigate('DrawerOpen') }>Menu</Text>,
+            // }),
         },
         AddContacts: {
             screen: AddContacts,
@@ -103,6 +91,7 @@ export default AppNavigator = StackNavigator(
     },
     {
         mode: 'modal',
+        headerMode: 'none',
     },
 
 );

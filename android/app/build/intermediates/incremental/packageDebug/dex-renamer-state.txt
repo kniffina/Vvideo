@@ -1,4 +1,4 @@
-#Tue Sep 19 07:59:29 PDT 2017
-base.0=C\:\\development\\Vvideo\\android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
+#Tue Sep 19 20:50:42 PDT 2017
+base.0=C\:\\dev\\Vvideo\\android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
 renamed.0=classes.dex
-file.0=C\:\\development\\Vvideo\\android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex
+file.0=C\:\\dev\\Vvideo\\android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex

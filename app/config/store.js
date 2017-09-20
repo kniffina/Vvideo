@@ -4,9 +4,11 @@ import thunk from 'redux-thunk';
 
 import nav from '../reducers/nav';
 import LoginSignUp from '../reducers/LoginSignUp';
+import MainReducer from '../reducers/MainReducer';
 
 const appReducer = combineReducers({
     LoginSignUp,
+    MainReducer,
     nav,
 });
 
