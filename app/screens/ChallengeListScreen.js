@@ -7,7 +7,7 @@ class ChallengeListScreen extends Component {
     render() {
         return (
             <View style={styles.container} >
-                <Text style={{fontSize: 50}}>Challenge List of STuff</Text>
+                <Text style={{fontSize: 50}}>Challenge List</Text>
             </View>
         );
     }
@@ -32,7 +32,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-
     }
 };
 

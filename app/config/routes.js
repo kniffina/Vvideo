@@ -1,7 +1,9 @@
 import React from 'react';
-import { StatusBar, Text } from 'react-native';
 import { StackNavigator, TabNavigator, DrawerNavigator } from 'react-navigation';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import Ionicon from 'react-native-vector-icons/Ionicons';
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+import DrawerButton from '../components/DrawerButton/DrawerButton';
 
 import Entry from '../screens/Entry';
 import Login from '../screens/Login';
@@ -13,89 +15,79 @@ import ViewFriendChallenges from '../screens/ViewFriendChallenges';
 import Settings from '../screens/Settings';
 
 
-
 const MainNavigator = TabNavigator(
     {
         ViewFriendChallenges: {
             screen: ViewFriendChallenges,
             navigationOptions: {
-                tabBarLabel: 'View Challenges',
+                tabBarLabel: 'Vote on Friends',
+                tabBarIcon: () => {return ( <Icon name="check" size={20} color="white"/> ) },
             },
         },
         MainVideo: {
             screen: MainVideo,
             navigationOptions: {
-                tabBarLabel: 'Record Video',
-                // tabBarIcon: ({ tintColor }) => (
-                //   <Image
-                //     source={require('./notif-icon.png')}
-                //     style={[styles.icon, {tintColor: tintColor}]}
-                //   />
-                // ),
+                tabBarLabel: 'Record\nVideo',
+                tabBarIcon: () => { return ( <SimpleLineIcons name="camrecorder" size={20} color="white"/> ) },
             },
         },
         ChallengeListScreen: {
             screen: ChallengeListScreen,
             navigationOptions: {
-                tabBarLabel: 'Watch Challenges',
+                tabBarLabel: 'View Your Challenges',
+                tabBarIcon: () => { return ( <Icon name="list" size={20} color="white"/> ) },
+
             },
         },
 
-    },
-    {
-        mode: 'default',
-        headerMode: 'none',
-        swipeEnabled: true,
-        animationEnabled: true,
-        tabBarPosition: 'bottom',
+    }, {
+        mode: 'default', headerMode: 'none', swipeEnabled: true,
+        animationEnabled: true, tabBarPosition: 'bottom',
         tabBarOptions: {
-            inactiveBackgroundColor: '#2196F3',
-            inactiveTintColor: '#FFFFFF',
-            activeBackgroundColor: '#1565C0',
-            activeTintColor: '#FFFFFF',
+            inactiveBackgroundColor: '#2196F3', inactiveTintColor: '#FFFFFF',
+            activeBackgroundColor: '#1565C0', activeTintColor: '#FFFFFF',
             labelStyle: {
-                fontSize: 14,
-                padding: 5,
+                fontSize: 13,
             },
-            style: {
-                height: 70,
-            }
+            style: { height: 80,  },
+            showIcon: true,
         },
+    }
+);
 
+const InnerStack = StackNavigator(
+    {
+        MainVideo: { screen: MainNavigator, banner: 'Home' },
+        Settings: { screen: Settings },
+        AddContacts: { screen: AddContacts },
+    },{
+        mode: 'modal',
+        navigationOptions: ({ navigation }) => ({
+            headerRight: <DrawerButton navigation={navigation}/>,
+        })
     }
 );
 
 const Drawer = DrawerNavigator({
-    Tabs: { screen: MainNavigator }
+    Home: { screen: InnerStack, navigationOptions: { drawerIcon: <Icon name="home" size={20} />} },
+    Settings: { screen: InnerStack, navigationOptions: { drawerIcon: <Icon name="cog" size={20} /> } },
+    AddContacts: { screen: InnerStack, navigationOptions: { drawerLabel: 'Add Contacts', drawerIcon: <Ionicon name="md-contacts" size={20} />, }, },
 });
+
 
 
 export default AppNavigator = StackNavigator(
     {
-        Entry: { screen: Entry,  navigationOptions: { header: () => null, }, },
-        Login: { screen: Login,  navigationOptions: { header: () => null, }, },
-        SignUp: { screen: SignUp, navigationOptions: { header: () => null, }, },
-        MainVideo: {
-            screen: Drawer,
-            // navigationOptions: ({navigation}) => ({
-            //     headerLeft: <Text onPress={() => navigation.navigate('DrawerOpen') }>Menu</Text>,
-            // }),
-        },
-        AddContacts: {
-            screen: AddContacts,
-            header: () => null,
-        },
-        Drawer: {
-            screen: Drawer,
-        }
-    },
-    {
+        Entry: { screen: Entry },
+        Login: { screen: Login },
+        SignUp: { screen: SignUp },
+        MainVideo: { screen: Drawer },
+
+    }, {
         mode: 'modal',
         headerMode: 'none',
-    },
-
+    }
 );
-
 
 
 

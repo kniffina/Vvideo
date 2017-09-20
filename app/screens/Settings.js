@@ -4,9 +4,6 @@ import { View, Text, StatusBar } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 class Settings extends Component {
-    componentDidMount = () => {
-
-    };
 
     render() {
         return (
@@ -23,7 +20,7 @@ const styles = EStyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         '@media android': {
-            marginTop: 2 * -StatusBar.currentHeight,
+            marginTop: -StatusBar.currentHeight,
         }
     }
 });

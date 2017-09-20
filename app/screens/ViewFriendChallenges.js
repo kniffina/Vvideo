@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { View, Text, StatusBar } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
+
 class ViewFriendChallenges extends Component {
     render() {
         return (

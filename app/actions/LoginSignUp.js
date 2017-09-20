@@ -20,7 +20,6 @@ export const getContacts = () => {
 };
 
 export const checkIfUserLoggedIn = (navigation) => {
-
     return function (dispatch) {
         firebaseRef.auth().onAuthStateChanged(function (user) {
             if (user) {
