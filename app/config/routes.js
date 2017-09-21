@@ -20,7 +20,7 @@ const MainNavigator = TabNavigator(
         ViewFriendChallenges: {
             screen: ViewFriendChallenges,
             navigationOptions: {
-                tabBarLabel: 'Vote on Friends',
+                tabBarLabel: 'Vote on\nFriends',
                 tabBarIcon: () => {return ( <Icon name="check" size={20} color="white"/> ) },
             },
         },
@@ -34,7 +34,7 @@ const MainNavigator = TabNavigator(
         ChallengeListScreen: {
             screen: ChallengeListScreen,
             navigationOptions: {
-                tabBarLabel: 'View Your Challenges',
+                tabBarLabel: 'View Your\nChallenges',
                 tabBarIcon: () => { return ( <Icon name="list" size={20} color="white"/> ) },
 
             },
@@ -58,8 +58,8 @@ const MainNavigator = TabNavigator(
 const InnerStack = StackNavigator(
     {
         MainVideo: { screen: MainNavigator, banner: 'Home' },
-        Settings: { screen: Settings },
-        AddContacts: { screen: AddContacts },
+        Settings: { screen: Settings, navigationOptions: { title: 'Settings' } },
+        AddContacts: { screen: AddContacts, navigationOptions: { title: 'Add Contacts'} },
     },{
         mode: 'modal',
         navigationOptions: ({ navigation }) => ({
@@ -82,13 +82,10 @@ export default AppNavigator = StackNavigator(
         Login: { screen: Login },
         SignUp: { screen: SignUp },
         MainVideo: { screen: Drawer },
+        AddContacts: { screen: AddContacts },
 
     }, {
         mode: 'modal',
         headerMode: 'none',
     }
 );
-
-
-
-

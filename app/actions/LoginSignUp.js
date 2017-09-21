@@ -21,15 +21,15 @@ export const getContacts = () => {
 
 export const checkIfUserLoggedIn = (navigation) => {
     return function (dispatch) {
-        firebaseRef.auth().onAuthStateChanged(function (user) {
-            if (user) {
-                dispatch(sendUserToMain(navigation));
-            }
-            else {
-                dispatch(setFetchingFalse());
-            }
-        });
-        //dispatch(setFetchingFalse());
+        // firebaseRef.auth().onAuthStateChanged(function (user) {
+        //     if (user) {
+        //         dispatch(sendUserToMain(navigation));
+        //     }
+        //     else {
+        //         dispatch(setFetchingFalse());
+        //     }
+        // });
+        dispatch(setFetchingFalse());
     }
 };
 
