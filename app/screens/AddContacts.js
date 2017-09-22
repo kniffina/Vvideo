@@ -18,15 +18,15 @@ class AddContacts extends Component {
 
     componentWillMount = () => {
         this.props.setFetchingContacts(true);
-    }
+    };
 
     render() {
         return (
-            { this.props.fetchingContacts ? <LoadingDisplay loadingText="Contacts" />  :
+                this.props.fetchingContacts ? <LoadingDisplay loadingText="Contacts" /> :
                 <View>
                     <Text style={{fontSize: 60}}>Add Contacts Screen</Text>
                 </View>
-            }
+
         );
     }
 }

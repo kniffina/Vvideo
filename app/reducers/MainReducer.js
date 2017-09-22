@@ -1,5 +1,5 @@
 import {
-    ,
+    SET_FETCHING,
 
 } from '../constants/constants';
 

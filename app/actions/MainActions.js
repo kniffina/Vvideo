@@ -10,6 +10,6 @@ import * as Firebase from 'firebase';
 export const setFetchingContacts = (bool) => {
     return {
         type: SET_FETCHING,
-        action: payload,
+        action: bool,
     }
-}
+};
