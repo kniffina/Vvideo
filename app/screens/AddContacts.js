@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { View, Text, ListView, } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import ContactListItem from '../components/ContactListItem/ContactListItem';
+import LoadingDisplay from '../components/LoadingDisplay/LoadingDisplay';
+import { setFetchingContacts } from '../actions/MainActions';
 
 class AddContacts extends Component {
 
@@ -14,11 +16,17 @@ class AddContacts extends Component {
         };
     }
 
+    componentWillMount = () => {
+        this.props.setFetchingContacts(true);
+    }
+
     render() {
         return (
-            <View>
-                <Text style={{fontSize: 60}}>Add Contacts Screen</Text>
-            </View>
+            { this.props.fetchingContacts ? <LoadingDisplay loadingText="Contacts" />  :
+                <View>
+                    <Text style={{fontSize: 60}}>Add Contacts Screen</Text>
+                </View>
+            }
         );
     }
 }
@@ -29,14 +37,15 @@ const styles = EStyleSheet.create({
 
 const mapStateToProps = (state) => {
     return {
-        isFetching: state.LoginSignUp.isFetching,
-        contacts: state.LoginSignUp.contacts,
+        fetchingContacts: state.MainReducer.fetchingContacts,
+        contacts: state.MainReducer.contacts,
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         getContacts: () => dispatch(getContacts()),
+        setFetchingContacts: (bool) => dispatch(setFetchingContacts(bool)),
     }
 };
 
