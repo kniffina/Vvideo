@@ -17,22 +17,28 @@ class AddContacts extends Component {
     }
 
     componentWillMount = () => {
-        this.props.setFetchingContacts(true);
+        //this.props.setFetchingContacts(true);
     };
 
     render() {
         return (
-                this.props.fetchingContacts ? <LoadingDisplay loadingText="Contacts" /> :
-                <View>
-                    <Text style={{fontSize: 60}}>Add Contacts Screen</Text>
+                // this.props.fetchingContacts ? <LoadingDisplay loadingText="Contacts" /> :
+                // <View>
+                //     <Text style={{fontSize: 60}}>Add Contacts Screen</Text>
+                // </View>
+                <View style={styles.loadingStyle}>
+                    <LoadingDisplay loadingText="Contacts" explainText="This may take a few moments"/>
                 </View>
-
         );
     }
 }
 
 const styles = EStyleSheet.create({
-
+    loadingStyle: {
+        justifyContent:'center',
+        alignItems:'center',
+        marginTop: '30%'
+    }
 });
 
 const mapStateToProps = (state) => {

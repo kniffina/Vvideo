@@ -11,6 +11,7 @@ const initialState = {
 
 const MainReducer = (state = initialState, action) => {
     switch(action.type) {
+
         case SET_FETCHING:
             if(action.payload === true) {
                 return {

@@ -5,26 +5,24 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 const LoadingDisplay = ({ loadingText, explainText }) => {
     return (
         <View style={styles.cotainer}>
-            <ActivityIndicator size="large" />
-            <Text style={styles.loadingContacts}>Loading {loadingText} .... </Text>
-            { explainText ?  <Text style={styles.otherText}>This may take a moment</Text> : null }
+            <Text style={styles.loadingContacts}>Loading {loadingText}</Text>
+            { explainText ?  <Text style={styles.otherText}>{ explainText }</Text> : null }
+            <ActivityIndicator size="large" style={styles.activityLoader}/>
         </View>
     );
 }
 
 const styles = EStyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
     loadingContacts: {
-        fontSize: 60,
+        fontSize: 40,
         padding: 5,
     },
     otherText: {
-        fontSize: 40,
+        fontSize: 25,
         padding: 5,
+    },
+    activityLoader: {
+        marginTop: 40,
     }
 
 });

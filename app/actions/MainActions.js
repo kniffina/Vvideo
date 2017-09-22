@@ -8,8 +8,9 @@ import * as Firebase from 'firebase';
 // };
 
 export const setFetchingContacts = (bool) => {
+    console.log(payload);
     return {
         type: SET_FETCHING,
-        action: bool,
+        payload: bool,
     }
 };
