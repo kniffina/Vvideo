@@ -14,12 +14,11 @@ class ChallengeListScreen extends Component {
 }
 
 const styles = EStyleSheet.create({
-    container: {
+    container: {flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
         '@media android': {
             marginTop: -StatusBar.currentHeight,
-            flex: 1,
-            alignItems: 'center',
-            justifyContent: 'center'
         }
     }
 });
